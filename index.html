@@ -140,7 +140,7 @@ function mainFunction() {
     // Set up observers for input changes
     const observeInput = (selector, contextKey) => {
         setInterval(() => {
-            const element = window.parent.document.querySelector(selector);
+            const element = window.document.querySelector(selector);
             console.log(element);
             if (element) {
                 const value = element.value || "";
