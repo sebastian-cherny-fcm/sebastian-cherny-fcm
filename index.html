@@ -162,6 +162,19 @@ function mainFunction() {
 // Initialize when the script loads
 mainFunction();
 
+
+window.addEventListener("message", (event) => {
+	console.log("event received", event.origin);    
+// Allow messages only from the known extension or Trivago
+    if (event.origin !== "https://www.trivago.com") return;
+
+    console.log("Message received in iframe:", event.data);
+
+    // Example: Send a response back
+    event.source.postMessage("Hello from iframe!", event.origin);
+});
+
+
 			</script>
                   </body>
               </html>
